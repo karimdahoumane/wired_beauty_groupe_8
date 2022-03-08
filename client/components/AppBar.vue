@@ -3,6 +3,7 @@
         v-slot="{ hover }"
     >
         <v-app-bar
+            z-index="6"
             flat
             absolute
             hide-on-scroll
@@ -25,7 +26,7 @@
                     <v-col cols="3">
                         <v-row no-gutters justify="end" align="center">
                             <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/become_panelist">
-                                <v-btn :color="hover? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
+                                <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
                             </NuxtLink>
                             <v-btn icon>
                                 <v-icon :color="hover ? 'black' : 'white'">mdi-account</v-icon>
@@ -37,19 +38,19 @@
             <v-col cols="12">
                 <v-row no-gutters justify="center" align="center">
                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/what_we_do">
-                    <v-btn :color="hover? 'black' : 'white'" text>{{ $t('What we do') }}</v-btn>
+                    <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('What we do') }}</v-btn>
                 </NuxtLink>
                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/device_and_app">
-                    <v-btn :color="hover? 'black' : 'white'" text>{{ $t('Device & App') }}</v-btn>
+                    <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('Device & App') }}</v-btn>
                 </NuxtLink>
                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/who_are_we">
-                    <v-btn :color="hover? 'black' : 'white'" text>{{ $t('Who we are') }}</v-btn>
+                    <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('Who we are') }}</v-btn>
                 </NuxtLink>
                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/scientific_validation">
-                    <v-btn :color="hover? 'black' : 'white'" text>{{ $t('Scientific validation') }}</v-btn>
+                    <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('Scientific validation') }}</v-btn>
                 </NuxtLink>
                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/studies_and_services">
-                    <v-btn :color="hover? 'black' : 'white'" text>{{ $t('Studies & services') }}</v-btn>
+                    <v-btn rounded :color="hover? 'black' : 'white'" text>{{ $t('Studies & services') }}</v-btn>
                 </NuxtLink>
                 </v-row>
             </v-col>
