@@ -1,7 +1,21 @@
 version: "3.7"
 # In Progress
 services:
-  #Voir pour Traefik ?
+  traefik:
+    image: traefik:latest
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.docker/traefik:/etc/traefik
+    labels:
+      - traefik.enable=true
+      - traefik.port=8080
+      - traefik.http.services.traefik.loadbalancer.server.port=8080
+      - traefik.http.routers.traefik.rule=Host(`traefik.wb.localhost}`)
+
   db:
     image: postgres:13
     ports:
@@ -12,6 +26,13 @@ services:
       - POSTGRES_DB=wiredbeauty
       - POSTGRES_USER=wiredbeauty
       - POSTGRES_PASSWORD=wiredbeauty
+
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+      - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+      - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+
   web:
     image: nginx:1.19.8-alpine
     volumes:
@@ -19,6 +40,11 @@ services:
       - ./.docker/nginx:/etc/nginx/conf.d
     ports:
       - "9000:80"
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.web.loadbalancer.server.port=80
+      - traefik.http.routers.web.rule=Host(`api.wb.localhost`)
+
   php:
     build:
       context: ./.docker/php
@@ -31,6 +57,7 @@ services:
     working_dir: /var/www
     volumes:
       - ./api:/var/www
+
   client:
     build:
       context: ./.docker/node
@@ -45,6 +72,12 @@ services:
       - "3000:3000"
     volumes:
       - ./client:/home/node/app
-    command: bash -c "npm install && npm run dev -- --hostname 0.0.0.0 --port 3000"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.client.entrypoints=http
+      - traefik.http.services.client.loadbalancer.server.port=3000
+      - traefik.http.routers.client.rule=Host(`wb.localhost`)
+    command: bash -c "pnpm install && pnpm dev -- --hostname 0.0.0.0 --port 3000"
+
 volumes:
   wb-db: {}

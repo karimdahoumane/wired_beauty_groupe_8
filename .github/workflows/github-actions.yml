@@ -1,0 +1,6 @@
+# in progress
+name: github-actions
+on: [push]
+jobs:
+  Test:
+    runs-on: ubuntu-latest

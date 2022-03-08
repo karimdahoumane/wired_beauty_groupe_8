@@ -45,11 +45,12 @@ RUN docker-php-ext-install \
     exif \
     zip \
     gd \
+    bcmath \
     calendar
 
 # Install extensions from PECL
 RUN pecl install \
-    apcu \
+    APCu \
     xdebug \
     imagick
 
