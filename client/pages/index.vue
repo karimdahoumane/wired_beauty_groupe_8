@@ -1,13 +1,6 @@
 <template>
     <div>
         <v-img height="100vh" cover :src="require(`~/assets/images/image.jpg`)"></v-img>
-        <p>Lorem</p>
-        <p>Lorem</p>
-        <p>Lorem</p>
-        <p>Lorem</p>
-
-        <p>Lorem</p>
-        <p>Lorem</p>
     </div>
 </template>
 
@@ -17,7 +10,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .image {
     background-image: url('~/assets/images/image.jpg');
     background-position: center top;
