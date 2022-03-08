@@ -1,21 +1,6 @@
 version: "3.7"
 # In Progress
 services:
-  traefik:
-    image: traefik:latest
-    ports:
-      - "80:80"
-      - "8080:8080"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./.docker/traefik:/etc/traefik
-    labels:
-      - traefik.enable=true
-      - traefik.port=8080
-      - traefik.http.services.traefik.loadbalancer.server.port=8080
-      - traefik.http.routers.traefik.rule=Host(`traefik.wb.localhost}`)
-
   db:
     image: postgres:13
     ports:
@@ -39,20 +24,12 @@ services:
       - ./api:/var/www
       - ./.docker/nginx:/etc/nginx/conf.d
     ports:
-      - "9000:80"
-    labels:
-      - traefik.enable=true
-      - traefik.http.services.web.loadbalancer.server.port=80
-      - traefik.http.routers.web.rule=Host(`api.wb.localhost`)
+      - "8000:80"
 
   php:
     build:
       context: ./.docker/php
       dockerfile: Dockerfile
-    dns:
-      - 172.17.0.1
-      - 8.8.8.8
-      - 8.8.4.4
     image: wb-php
     working_dir: /var/www
     volumes:
@@ -69,15 +46,9 @@ services:
     environment:
       - NODE_ENV=development
     ports:
-      - "3000:3000"
+      - "80:3000"
     volumes:
       - ./client:/home/node/app
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.client.entrypoints=http
-      - traefik.http.services.client.loadbalancer.server.port=3000
-      - traefik.http.routers.client.rule=Host(`wb.localhost`)
-    command: bash -c "pnpm install && pnpm dev -- --hostname 0.0.0.0 --port 3000"
 
 volumes:
   wb-db: {}

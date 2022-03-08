@@ -59,6 +59,8 @@ RUN docker-php-ext-enable \
     xdebug \
     imagick
 
-WORKDIR /home/api
+WORKDIR /var/www
 
 COPY php.ini /usr/local/etc/php/conf.d/
+
+

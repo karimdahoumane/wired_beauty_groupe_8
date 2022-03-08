@@ -19,7 +19,7 @@ init: ## initialise the development environment
 	@$(DKC) up -d --build && \
 	$(EXEC_PHP) composer install && \
 	$(EXEC_PHP) php artisan migrate && \
-	$(EXEC_CLIENT) pnpm install && \
+	$(EXEC_CLIENT) npm install && \
 	make clear
 
 ## —— Docker ———————————————————————————————————————————————————————————————————
