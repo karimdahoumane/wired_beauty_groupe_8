@@ -244,6 +244,7 @@ export default {
     -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
 }
+
 .button-two {
     position: absolute;
     top: 50%;
