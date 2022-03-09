@@ -86,23 +86,33 @@
         <v-navigation-drawer v-model="drawer" temporary fixed>
             <v-list nav dense>
                 <v-list-item>
-                    <NuxtLink to="/device_and_app">
+                    <NuxtLink class="custom-link" to="/device_and_app">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Device & App') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink to="/who_are_we">
+                    <NuxtLink class="custom-link" to="/who_are_we">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Who we are') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink to="/scientific_validation">
+                    <NuxtLink class="custom-link" to="/scientific_validation">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Scientific validation') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink to="/studies_and_services">
+                    <NuxtLink class="custom-link" to="/studies_and_services">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Studies & services') }}</v-btn>
+                    </NuxtLink>
+                </v-list-item>
+                <v-list-item>
+                    <NuxtLink class="custom-link" to="/become_panelist">
+                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Become a panelist') }}</v-btn>
+                    </NuxtLink>
+                </v-list-item>
+                <v-list-item>
+                    <NuxtLink class="custom-link" to="/">
+                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Account') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
             </v-list>
@@ -159,14 +169,16 @@ export default {
     "Device & App": "Device & App",
     "Who we are": "Who we are",
     "Scientific validation": "Scientific validation",
-    "Studies & services": "Studies & services"
+    "Studies & services": "Studies & services",
+    "Account": "Account"
   },
   "fr": {
     "Become a panelist": "Devenez un testeur",
     "Device & App": "Device & App",
     "Who we are": "Qui sommes nous ?",
     "Scientific validation": "Validation scientifique",
-    "Studies & services": "Études et services"
+    "Studies & services": "Études et services",
+    "Account": "Compte"
   }
 }
 </i18n>
