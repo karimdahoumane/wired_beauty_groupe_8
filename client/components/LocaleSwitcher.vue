@@ -1,7 +1,6 @@
 <template>
     <div>
-        <v-select color="white" v-model="$i18n.locale" :items="allAvailableLocales" item-value="code" item-text="name">
-        </v-select>
+        <v-select v-model="$i18n.locale" color="white" :items="allAvailableLocales" item-value="code" item-text="name"> </v-select>
     </div>
 </template>
 
@@ -9,11 +8,11 @@
 export default {
     computed: {
         availableLocales() {
-            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+            return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
         },
         allAvailableLocales() {
-            return this.$i18n.locales.filter(i => i.code);
-        }
-    }
-}
+            return this.$i18n.locales.filter((i) => i.code);
+        },
+    },
+};
 </script>
