@@ -15,7 +15,7 @@
             counter
             @click:append="show = !show"
           ></v-text-field>
-          <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit"> Log in </v-btn>
+          <v-btn :loading="loading" :disabled="!valid" color="success" class="mr-4" @click="submit"> Log in </v-btn>
         </v-form>
       </v-card>
     </v-col>
@@ -28,7 +28,9 @@
 export default {
   layout: 'empty',
   data: () => ({
+    loader: null,
     valid: true,
+    loading: false,
     email: '',
     emailRules: [(v) => !!v || 'E-mail is required', (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'],
     password: '',
@@ -42,15 +44,57 @@ export default {
     async submit() {
       this.$refs.form.validate();
       try {
+        this.loader = 'loading';
+        const l = this.loader
+        this[l] = !this[l]
         await this.$strapi.login({identifier: this.email, password: this.password});
-        console.log("oeoeoe");
+        this[l] = false;
+        this.loader = null;
+        await this.$router.push('/admin');
       } catch (e) {
-        console.log("aled");
+        console.error("An error has occured", e);
       }
-
-
     },
   },
 }
 
 </script>
+
+<style>
+.custom-loader {
+  animation: loader 1s infinite;
+  display: flex;
+}
+@-moz-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
