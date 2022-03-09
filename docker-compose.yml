@@ -35,6 +35,22 @@ services:
     volumes:
       - ./api:/var/www
 
+  strapi:
+    image: 'strapi/strapi'
+    volumes:
+      - ./strapi:/srv/app
+    ports:
+      - "1337:1337"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=wiredbeauty
+      - DATABASE_USERNAME=wiredbeauty
+      - DATABASE_PASSWORD=wiredbeauty
+
   client:
     build:
       context: ./.docker/node

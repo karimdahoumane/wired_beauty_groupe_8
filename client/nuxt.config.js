@@ -40,7 +40,9 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    //https://strapi.nuxtjs.org/setup
+    '@nuxtjs/strapi'
   ],
   i18n: {
     locales: [
@@ -86,6 +88,13 @@ export default {
         }
       }
     }
+  },
+  strapi: {
+    // Options
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    prefix: '/api',
+    version: 'v4',
+    cookie: {},
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
