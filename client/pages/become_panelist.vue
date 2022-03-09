@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .img {
-    background-image: url('~/assets/images/image.jpg');
+    /* background-image: url('~/assets/images/image.jpg'); */
     background-position: center top;
     background-size: 100% auto;
     height: 100vh;
