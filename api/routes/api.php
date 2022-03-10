@@ -18,6 +18,12 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
+Route::post('/subscribe-newsletter', \App\Http\Controllers\NewsletterController::class);
+
+Route::post('/upload-excel', \App\Http\Controllers\UploadController::class);
+
+Route::get('/graph-test', \App\Http\Controllers\GraphController::class);
+
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
