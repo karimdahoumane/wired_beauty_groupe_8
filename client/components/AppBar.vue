@@ -17,9 +17,11 @@
                                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/become_panelist">
                                     <v-btn rounded :color="hover ? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
                                 </NuxtLink>
+                              <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/auth/login">
                                 <v-btn icon>
-                                    <v-icon :color="hover ? 'black' : 'white'">mdi-account</v-icon>
+                                  <v-icon :color="hover ? 'black' : 'white'">mdi-account</v-icon>
                                 </v-btn>
+                              </NuxtLink>
                             </v-row>
                         </v-col>
                     </v-row>
