@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: 'EmptyLayout',
+    name: 'ErrorLayout',
     layout: 'empty',
     props: {
         error: {
