@@ -49,9 +49,17 @@
                                     <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/become_panelist">
                                         <v-btn rounded :color="hover ? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
                                     </NuxtLink>
-                                    <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/auth/login">
-                                        <v-btn rounded :color="hover ? 'black' : 'white'" text>{{ $t('Login') }}</v-btn>
-                                    </NuxtLink>
+                                    <div>
+                                        <v-btn
+                                            :class="hover ? 'custom-link-hovered' : 'custom-link'"
+                                            rounded
+                                            :color="hover ? 'black' : 'white'"
+                                            text
+                                            @click.stop="secondDrawer = !secondDrawer"
+                                        >
+                                            <span>{{ $t('Login') }}</span>
+                                        </v-btn>
+                                    </div>
                                 </v-row>
                             </v-col>
                         </v-row>
@@ -120,6 +128,42 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
+
+        <v-navigation-drawer v-model="secondDrawer" floating class="custom-right-nav-drawer" width="500" clipped app right hide-overlay temporary>
+            <v-row no-gutters align="center" justify="space-between">
+                <v-col cols="8 offset-1">
+                    <p class="mt-3 text-h4 font-weight-bold">{{ $t('Access your account') }}</p>
+                </v-col>
+                <v-col cols="2">
+                    <v-btn icon @click="secondDrawer = !secondDrawer">
+                        <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                </v-col>
+            </v-row>
+            <v-divider></v-divider>
+            <v-row no-gutters align="center" justify="center">
+                <v-col cols="10">
+                    <p class="mt-3 text-h5 font-weight-bold">{{ $t('My Wired Beauty account') }}</p>
+                </v-col>
+            </v-row>
+            <v-row no-gutters align="center" justify="center">
+                <v-col cols="10">
+                    <LoginForm />
+                </v-col>
+            </v-row>
+            <v-divider class="my-6"></v-divider>
+            <v-row no-gutters justify="center">
+                <v-col cols="10">
+                    <p class="my-1 text-h5 font-weight-bold">{{ $t('New to us?') }}</p>
+                    <p>{{ $t('Create your WB space to have access to personalized information') }}</p>
+                    <v-hover v-slot="{ hover }">
+                        <v-btn block :loading="loading" :color="hover ? 'white' : 'black'" class="mr-4" @click="submit">
+                            <span :class="hover ? 'black--text' : 'white--text'">{{ $t('Create your account now') }}</span>
+                        </v-btn>
+                    </v-hover>
+                </v-col>
+            </v-row>
+        </v-navigation-drawer>
     </div>
 </template>
 
@@ -128,6 +172,7 @@ export default {
     data() {
         return {
             drawer: null,
+            secondDrawer: null,
         };
     },
     computed: {
@@ -163,6 +208,10 @@ export default {
     border-bottom: solid;
     border-bottom-width: 2px;
 }
+.custom-right-nav-drawer {
+    border-left: solid lightgray !important;
+    border-width: 1px !important;
+}
 </style>
 
 <i18n>
@@ -174,7 +223,12 @@ export default {
     "Who we are": "Who we are",
     "Scientific validation": "Scientific validation",
     "Studies & services": "Studies & services",
-    "Login": "Login"
+    "Login": "Login",
+    "Access your account": "Access your account",
+    "My Wired Beauty account": "My Wired Beauty account",
+    "New to us?": "New to us?",
+    "Create your WB space to have access to personalized information": "Create your WB space to have access to personalized information",
+    "Create your account now": "Create your account now"
   },
   "fr": {
     "Become a panelist": "Devenez un testeur",
@@ -183,7 +237,12 @@ export default {
     "Who we are": "Qui sommes nous ?",
     "Scientific validation": "Validation scientifique",
     "Studies & services": "Études et services",
-    "Login": "Se connecter"
+    "Login": "Se connecter",
+    "Access your account": "Accédez à votre compte",
+    "My Wired Beauty account": "Mon compte Wired Beauty",
+    "New to us?": "Nouveau chez nous ?",
+    "Create your WB space to have access to personalized information": "Créez votre espace WB pour avoir accès à des informations personnalisées",
+    "Create your account now": "Créez votre compte dès maintenant"
   }
 }
 </i18n>
