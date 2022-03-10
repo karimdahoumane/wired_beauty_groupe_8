@@ -441,7 +441,7 @@ export default {
 }
 .custom-button {
     position: absolute;
-    top: 65%;
+    top: 75%;
     left: 50%;
     -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
