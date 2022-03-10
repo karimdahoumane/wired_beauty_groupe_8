@@ -74,6 +74,9 @@
                                     $t('Studies & services')
                                 }}</v-btn>
                             </NuxtLink>
+                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/blog">
+                              <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>Blog</v-btn>
+                            </NuxtLink>
                         </v-row>
                     </v-col>
                 </v-row>
