@@ -60,6 +60,7 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/i18n',
+        '@nuxtjs/google-analytics'
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -92,6 +93,14 @@ export default {
         prefix: '/api',
         version: 'v4',
         cookie: {},
+    },
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    },
+    publicRuntimeConfig: {
+      googleAnalytics: {
+        id: process.env.GOOGLE_ANALYTICS_ID
+      }
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
