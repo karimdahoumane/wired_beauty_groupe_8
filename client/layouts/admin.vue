@@ -1,57 +1,44 @@
 <template>
-  <v-app>
-    <v-app-bar
-      color="deep-purple"
-      dark
-    >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>Client Dashboard</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <NuxtLink to="/auth/logout"><v-icon>mdi-logout</v-icon></NuxtLink>
-    </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
+    <v-app>
+        <v-app-bar color="deep-purple" dark>
+            <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+            <v-toolbar-title>Client Dashboard</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <NuxtLink to="/auth/logout"><v-icon>mdi-logout</v-icon></NuxtLink>
+        </v-app-bar>
+        <v-navigation-drawer v-model="drawer" absolute temporary>
+            <v-list nav dense>
+                <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-home</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Home</v-list-item-title>
+                    </v-list-item>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
-    <v-main>
-      <v-container fluid>
-        <Nuxt />
-      </v-container>
-    </v-main>
-  </v-app>
+                    <v-list-item>
+                        <v-list-item-icon>
+                            <v-icon>mdi-account</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Account</v-list-item-title>
+                    </v-list-item>
+                </v-list-item-group>
+            </v-list>
+        </v-navigation-drawer>
+        <v-main>
+            <v-container fluid>
+                <Nuxt />
+            </v-container>
+        </v-main>
+    </v-app>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    drawer: false,
-    group: null,
-  }),
-}
-
+    name: 'AdminLayout',
+    data: () => ({
+        drawer: false,
+        group: null,
+    }),
+};
 </script>

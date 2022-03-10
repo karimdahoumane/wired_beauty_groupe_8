@@ -1,15 +1,14 @@
 <template>
-  <p>Logout in progress</p>
+    <p>Logout in progress</p>
 </template>
 
 <script>
-
 export default {
-  layout: 'empty',
-  async mounted() {
-    await this.$strapi.logout();
-    await this.$router.push('/');
-  }
-}
-
+    name: 'LogoutPage',
+    layout: 'empty',
+    async mounted() {
+        await this.$strapi.logout();
+        await this.$router.push('/');
+    },
+};
 </script>

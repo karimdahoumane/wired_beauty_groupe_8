@@ -5,7 +5,18 @@
                 <v-col cols="12">
                     <v-row no-gutters justify="center" align="center">
                         <v-col cols="1">
-                            <LocaleSwitcher :hover="hover" />
+                            <v-menu offset-y>
+                                <template #activator="{ on, attrs }">
+                                    <v-btn :color="hover ? 'black' : 'white'" text v-bind="attrs" v-on="on">
+                                        {{ $i18n.locale }}
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item v-for="(item, index) in allAvailableLocales" :key="index" @click="$i18n.locale = item.code">
+                                        <v-list-item-title>{{ item.name }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
                         </v-col>
                         <v-col cols="6 offset-2">
                             <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/">
@@ -17,11 +28,11 @@
                                 <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/become_panelist">
                                     <v-btn rounded :color="hover ? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
                                 </NuxtLink>
-                              <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/auth/login">
-                                <v-btn icon>
-                                  <v-icon :color="hover ? 'black' : 'white'">mdi-account</v-icon>
-                                </v-btn>
-                              </NuxtLink>
+                                <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/auth/login">
+                                    <v-btn icon>
+                                        <v-icon :color="hover ? 'black' : 'white'">mdi-account</v-icon>
+                                    </v-btn>
+                                </NuxtLink>
                             </v-row>
                         </v-col>
                     </v-row>
@@ -49,6 +60,24 @@
         </v-app-bar>
     </v-hover>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            drawer: null,
+        };
+    },
+    computed: {
+        availableLocales() {
+            return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
+        },
+        allAvailableLocales() {
+            return this.$i18n.locales.filter((i) => i.code);
+        },
+    },
+};
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
