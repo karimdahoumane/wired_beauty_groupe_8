@@ -235,7 +235,8 @@ export default {
 }
 #large-header,
 #login-header,
-#panelist-header {
+#panelist-header,
+#device-header {
     background: url('~/assets/images/hand_bottle.jpg') no-repeat center;
     background-size: cover;
     height: 100vh;

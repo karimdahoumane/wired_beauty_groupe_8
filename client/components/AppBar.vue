@@ -156,6 +156,10 @@ export default {
 .custom-app-bar {
     height: $app-bar-height;
 }
+.custom-app-bar-button:hover {
+    border-bottom: solid;
+    border-bottom-width: 2px;
+}
 </style>
 
 <i18n>
