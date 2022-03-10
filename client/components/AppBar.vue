@@ -52,9 +52,6 @@
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
-.custom-bg-color-one {
-    background-color: $custom-one !important;
-}
 .custom-bg-transparent {
     background-color: transparent !important;
 }

@@ -1,5 +1,5 @@
 <template>
-  <p class="white--text">BRAVO TU ES CONNECTED LOL</p>
+  <p>BRAVO TU ES CONNECTED LOL</p>
 </template>
 
 <style scoped>

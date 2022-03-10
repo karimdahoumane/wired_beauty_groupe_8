@@ -1,5 +1,5 @@
 <template>
-  <p class="white--text">Logout in progress</p>
+  <p>Logout in progress</p>
 </template>
 
 <script>
