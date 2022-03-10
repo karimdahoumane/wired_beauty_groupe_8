@@ -1,12 +1,13 @@
 <template>
-  <p>BRAVO TU ES CONNECTED LOL</p>
+  <p class="white--text">BRAVO TU ES CONNECTED LOL</p>
 </template>
 
-<script>
+<style scoped>
+</style>
 
+<script>
 export default {
   middleware: 'auth',
   layout: 'admin'
 }
-
 </script>
