@@ -1,24 +1,33 @@
 <template>
-    <v-row no-gutters justify="center" align="center" class="img">
-        <v-col cols="6">
-            <v-card color="white" class="pa-3">
-                <v-form ref="form" v-model="valid" lazy-validation>
-                    <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
+    <div id="panelist-header" class="large-header">
+        <canvas id="panelist-canvas"></canvas>
+        <v-row no-gutters justify="center" align="center">
+            <v-col cols="10">
+                <v-card color="white" width="500" class="pa-3 custom-row">
+                    <v-form ref="form" v-model="valid" lazy-validation>
+                        <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
 
-                    <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
 
-                    <v-select v-model="select" :items="items" :rules="[(v) => !!v || 'Item is required']" label="Item" required></v-select>
+                        <v-select v-model="select" :items="items" :rules="[(v) => !!v || 'Item is required']" label="Item" required></v-select>
 
-                    <v-checkbox v-model="checkbox" :rules="[(v) => !!v || 'You must agree to continue!']" label="Do you agree?" required></v-checkbox>
+                        <v-checkbox
+                            v-model="checkbox"
+                            :rules="[(v) => !!v || 'You must agree to continue!']"
+                            label="Do you agree?"
+                            required
+                        ></v-checkbox>
 
-                    <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"> Validate </v-btn>
-                </v-form>
-            </v-card>
-        </v-col>
-    </v-row>
+                        <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"> Validate </v-btn>
+                    </v-form>
+                </v-card>
+            </v-col>
+        </v-row>
+    </div>
 </template>
 
 <script>
+import { polygonEffect } from '~/services/polygonEffect';
 export default {
     data: () => ({
         valid: true,
@@ -30,7 +39,9 @@ export default {
         items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
         checkbox: false,
     }),
-
+    mounted() {
+        polygonEffect('panelist-canvas', 'panelist-header');
+    },
     methods: {
         validate() {
             this.$refs.form.validate();
@@ -40,10 +51,11 @@ export default {
 </script>
 
 <style scoped>
-.img {
-    /* background-image: url('~/assets/images/image.jpg'); */
-    background-position: center top;
-    background-size: 100% auto;
-    height: 100vh;
+.custom-row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
 }
 </style>
