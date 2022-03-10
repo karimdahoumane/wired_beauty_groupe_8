@@ -157,7 +157,7 @@
                     <p class="my-1 text-h5 font-weight-bold">{{ $t('New to us?') }}</p>
                     <p>{{ $t('Create your WB space to have access to personalized information') }}</p>
                     <v-hover v-slot="{ hover }">
-                        <v-btn block :loading="loading" :color="hover ? 'white' : 'black'" class="mr-4" @click="submit">
+                        <v-btn block :loading="loading" :color="hover ? 'white' : 'black'" class="mr-4">
                             <span :class="hover ? 'black--text' : 'white--text'">{{ $t('Create your account now') }}</span>
                         </v-btn>
                     </v-hover>
