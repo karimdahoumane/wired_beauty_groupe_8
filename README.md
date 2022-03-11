@@ -54,3 +54,17 @@ Les deux modèles ont été créés côté Strapi mais n'ont pas été implémen
 Il existe également un système de rôles qui a déjà été implémenté et customizable en tant que super admin.
 
 
+### Parcours utilisateur
+
+On assume que le client a rempli un formulaire de contact.
+Une fois le contact établi, le super-administrateur créé l'utilisateur dans la base de donnée à partir des données fournies par le client.
+Le client s'authentifie. Il arrive sur le dashboard où il pourra visualiser toutes les dataviz stockées.
+
+En tant que client, une fois authentifié, je peux déposer un fichier de données.
+Après importation et traitement du fichier par le serveur, celui-ci génère une dataviz qui nous permet de visualiser les données.
+Dans notre exemple (fichier Excel utilisé), le graphe représente l'efficacité du produit SKC (basé sur le score Anti-oxydant) testé sur 50 personnes sur une période de temps donnée.
+Deux courbes y sont tracées, l'une représente les mesures sur la zone où le produit a été appliqué, l'autre sur la zone où le produit n'aurait pas été appliqué.
+
+### Google analytics
+
+La création d'un id Google analytics est nécessaire. Cet id est à renseigner dans le ```.env```
