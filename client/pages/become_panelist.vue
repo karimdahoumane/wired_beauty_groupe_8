@@ -1,9 +1,9 @@
 <template>
     <div id="panelist-header" class="large-header">
         <canvas id="panelist-canvas"></canvas>
-        <v-row no-gutters justify="center" align="center">
+        <v-row no-gutters justify="center" align="center" class="custom-row">
             <v-col cols="10">
-                <v-card color="white" width="500" class="pa-3 custom-row">
+                <v-card color="white" width="500" class="pa-3">
                     <v-form ref="form" v-model="valid" lazy-validation>
                         <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
 
@@ -18,9 +18,22 @@
                             required
                         ></v-checkbox>
 
-                        <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate"> Validate </v-btn>
+                      <v-hover v-slot="{ hover }">
+                        <v-btn block :disabled="!valid" :color="hover ? 'white' : 'black'" class="mr-4" @click="validate">
+                          <span :class="hover ? 'black--text' : 'white--text'">Validate</span>
+                        </v-btn>
+                      </v-hover>
                     </v-form>
                 </v-card>
+              <v-row no-gutters justify="space-around" align="center">
+                <a href="https://play.google.com/store">
+                  <GooglePlayStoreBadge />
+                </a>
+                <a href="https://www.apple.com/fr/app-store/">
+                  <AppleAppStoreBadge />
+                </a>
+              </v-row>
+
             </v-col>
         </v-row>
     </div>
