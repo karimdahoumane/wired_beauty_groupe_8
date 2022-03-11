@@ -11,6 +11,8 @@ class GraphController extends Controller
     public function __invoke() {
 
 
+        $products = Rapport::query()->select('product_code')->distinct()->get()->toArray();
+
         //SKC appliqué
         $moyenne1T0 = Rapport::query()
             ->where('product_code', 417432)
