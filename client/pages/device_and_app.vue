@@ -19,24 +19,18 @@
                 <v-row no-gutters justify="space-between" align="center">
                     <v-col cols="4">
                         <v-img class="pa-3" cover height="500" :src="require(`~/assets/images/photography/scientist_woman.jpg`)">
-                            <p class="white--text">Soin de la peau</p>
-                            <p class="white--text">
-                                Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum Lorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem
-                                IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem Ipsum
-                            </p>
-                            <p class="white--text">Lorem Ipsum, Lorem Ipsum</p>
-                            <p class="white--text">Lorem Ipsum, Lorem Ipsum</p>
+                            <h5 class="text-h5 white--text">Smart Data X Skin Care</h5>
+                            <p class="white--text">Our measurements go from:</p>
+                            <p class="white--text">target markers such as ascorbic acid, alpha tocopherol, and squalene/sebum for non-targeted measures of skin barrier function or antioxidant capacity.</p>
+                            <p class="white--text">Our scientific partners (link in scientific page) have established that our CIP measurement is statistically correlated to that of chromatography which is the reference methodology as opposed to corneometry. Our technology is complementary to imaging.</p>
                         </v-img>
                     </v-col>
                     <v-col cols="4">
-                        <v-img class="pa-3" cover height="500" :src="require(`~/assets/images/photography/scientist_hands.jpg`)">
-                            <p class="white--text">Soin de la peau</p>
+                        <v-img class="pa-3" cover height="500" :src="require(`~/assets/images/photography/scientist_hands.jpg`)" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                            <h5 class="text-h5 white--text">Our incredibly fast algorithm</h5>
                             <p class="white--text">
-                                Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum Lorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem
-                                IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem IpsumLorem Ipsum, Lorem Ipsum
+                              With its IOT, consumer mobile app and standardized single-use patches, Wired Beauty can decimate antioxidant and neutralizing skin reactions in seconds. Artificial intelligence improves the repeatability of the process
                             </p>
-                            <p class="white--text">Lorem Ipsum, Lorem Ipsum</p>
-                            <p class="white--text">Lorem Ipsum, Lorem Ipsum</p>
                         </v-img>
                     </v-col>
                 </v-row>
