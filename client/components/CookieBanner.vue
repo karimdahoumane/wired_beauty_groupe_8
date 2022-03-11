@@ -47,7 +47,7 @@
                                     </v-btn>
                                 </v-hover>
                                 <v-hover v-slot="{ hover }">
-                                    <v-btn large :color="hover ? 'white' : 'black'" class="my-5 mx-6">
+                                    <v-btn large :color="hover ? 'white' : 'black'" class="my-5 mx-6" @click="accept">
                                         <span :class="hover ? 'black--text' : 'white--text'">{{ $t('Accept all and continue') }}</span>
                                     </v-btn>
                                 </v-hover>
