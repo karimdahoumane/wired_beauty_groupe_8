@@ -193,16 +193,6 @@ export default {
 .custom-bg-transparent {
     background-color: transparent !important;
 }
-.custom-link:link,
-.custom-link:visited {
-    text-decoration: none;
-    color: white;
-}
-.custom-link-hovered:link,
-.custom-link-hovered:visited {
-    text-decoration: none;
-    color: black;
-}
 .custom-app-bar {
     height: $app-bar-height;
 }

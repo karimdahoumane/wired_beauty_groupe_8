@@ -4,7 +4,7 @@
             <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
             <v-toolbar-title>Client Dashboard</v-toolbar-title>
             <v-spacer></v-spacer>
-            <NuxtLink to="/auth/logout"><v-icon>mdi-logout</v-icon></NuxtLink>
+            <NuxtLink class="custom-link" to="/auth/logout"><v-icon>mdi-logout</v-icon></NuxtLink>
         </v-app-bar>
         <v-navigation-drawer v-model="drawer" absolute temporary>
             <v-list nav dense>
@@ -42,3 +42,16 @@ export default {
     }),
 };
 </script>
+
+<style>
+.custom-link:link,
+.custom-link:visited {
+    text-decoration: none;
+    color: white;
+}
+.custom-link-hovered:link,
+.custom-link-hovered:visited {
+    text-decoration: none;
+    color: black;
+}
+</style>

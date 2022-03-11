@@ -285,6 +285,16 @@ export default {
     padding-bottom: 50px;
     margin-top: 30px;
 }
+.custom-link:link,
+.custom-link:visited {
+    text-decoration: none;
+    color: white;
+}
+.custom-link-hovered:link,
+.custom-link-hovered:visited {
+    text-decoration: none;
+    color: black;
+}
 </style>
 
 <i18n>
