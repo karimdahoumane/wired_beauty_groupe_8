@@ -20,6 +20,11 @@ export default {
     data() {
         return {};
     },
+    mounted() {
+        const recaptchaScript = document.createElement('script');
+        recaptchaScript.setAttribute('src', '//code.tidio.co/ixllqhey4hufqiqz94jgntnzk3oufgrr.js');
+        document.head.appendChild(recaptchaScript);
+    },
 };
 </script>
 
