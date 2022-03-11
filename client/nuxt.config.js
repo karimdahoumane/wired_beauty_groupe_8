@@ -50,9 +50,17 @@ export default {
                 code: 'fr',
                 name: 'Français',
             },
+            {
+                code: 'de',
+                name: 'Deutsch',
+            },
+            {
+                code: 'zho',
+                name: '中国',
+            },
         ],
         defaultLocale: 'en',
-        strategy: 'prefix_except_default',
+        strategy: 'prefix',
         vueI18nLoader: true,
     },
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -60,7 +68,7 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         '@nuxtjs/i18n',
-        '@nuxtjs/google-analytics'
+        '@nuxtjs/google-analytics',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -95,12 +103,12 @@ export default {
         cookie: {},
     },
     googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+        id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
     },
     publicRuntimeConfig: {
-      googleAnalytics: {
-        id: process.env.GOOGLE_ANALYTICS_ID
-      }
+        googleAnalytics: {
+            id: process.env.GOOGLE_ANALYTICS_ID,
+        },
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

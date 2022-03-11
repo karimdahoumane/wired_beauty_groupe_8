@@ -3,7 +3,7 @@
         <div id="large-header" class="large-header">
             <canvas id="index-canvas"></canvas>
             <v-row align="center" justify="center">
-                <h2 class="text-h2 font-weight-bold custom-title white--text">A new way to test cosmetics</h2>
+                <h2 class="text-h2 font-weight-bold custom-title white--text">{{ $t('A new way to test cosmetics') }}</h2>
                 <v-hover v-slot="{ hover }">
                     <v-btn
                         large
@@ -12,7 +12,7 @@
                         :class="hover ? 'bg-white' : 'bg-transparent'"
                         :color="hover ? 'black' : 'white'"
                         class="custom-button"
-                        >Watch the event</v-btn
+                        >{{ $t('Watch the event') }}</v-btn
                     >
                 </v-hover>
             </v-row>
@@ -286,3 +286,24 @@ export default {
     margin-top: 30px;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "A new way to test cosmetics": "A new way to test cosmetics",
+    "Watch the event": "Watch the event"
+  },
+  "fr": {
+    "A new way to test cosmetics": "Une nouvelle façon de tester les cosmétiques",
+    "Watch the event": "Regardez l'événement"
+  },
+  "de": {
+    "A new way to test cosmetics": "Eine neue Art, Kosmetika zu testen",
+    "Watch the event": "Die Veranstaltung ansehen"
+  },
+  "zho": {
+    "A new way to test cosmetics": "测试化妆品的新方法",
+    "Watch the event": "观看活动"
+  }
+}
+</i18n>
