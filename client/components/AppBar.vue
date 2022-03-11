@@ -21,7 +21,9 @@
                                     </template>
                                     <v-list>
                                         <v-list-item v-for="(item, index) in allAvailableLocales" :key="index" @click="$i18n.locale = item.code">
-                                            <v-list-item-title>{{ item.name }}</v-list-item-title>
+                                            <NuxtLink class="custom-link-hovered" :to="switchLocalePath(item.code)">
+                                                <v-list-item-title>{{ item.name }}</v-list-item-title>
+                                            </NuxtLink>
                                         </v-list-item>
                                     </v-list>
                                 </v-menu>
@@ -69,21 +71,21 @@
                             <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/device_and_app">
                                 <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>{{ $t('Device & App') }}</v-btn>
                             </NuxtLink>
-                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/who_are_we">
+                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/">
                                 <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>{{ $t('Who we are') }}</v-btn>
                             </NuxtLink>
-                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/scientific_validation">
+                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/">
                                 <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>{{
                                     $t('Scientific validation')
                                 }}</v-btn>
                             </NuxtLink>
-                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/studies_and_services">
+                            <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/">
                                 <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>{{
-                                    $t('Studies & services')
+                                    $t('Services & affiliations')
                                 }}</v-btn>
                             </NuxtLink>
                             <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/blog">
-                                <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>Blog</v-btn>
+                                <v-btn tile class="custom-app-bar-button" :color="hover ? 'black' : 'white'" text>{{ $t('Blog') }}</v-btn>
                             </NuxtLink>
                         </v-row>
                     </v-col>
@@ -107,17 +109,17 @@
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink class="custom-link" to="/scientific_validation">
+                    <NuxtLink class="custom-link" to="/">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Scientific validation') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink class="custom-link" to="/studies_and_services">
-                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Studies & services') }}</v-btn>
+                    <NuxtLink class="custom-link" to="/">
+                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Services & affiliations') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
-                    <NuxtLink class="custom-link" to="/become_panelist">
+                    <NuxtLink class="custom-link" to="/">
                         <v-btn tile class="custom-app-bar-button" text>{{ $t('Become a panelist') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
@@ -157,7 +159,7 @@
                     <p class="my-1 text-h5 font-weight-bold">{{ $t('New to us?') }}</p>
                     <p>{{ $t('Create your WB space to have access to personalized information') }}</p>
                     <v-hover v-slot="{ hover }">
-                        <v-btn block :loading="loading" :color="hover ? 'white' : 'black'" class="mr-4">
+                        <v-btn block :color="hover ? 'white' : 'black'" class="mr-4">
                             <span :class="hover ? 'black--text' : 'white--text'">{{ $t('Create your account now') }}</span>
                         </v-btn>
                     </v-hover>
@@ -218,11 +220,11 @@ export default {
 {
   "en": {
     "Become a panelist": "Become a panelist",
-    "What we do": "What we do",
     "Device & App": "Device & App",
     "Who we are": "Who we are",
     "Scientific validation": "Scientific validation",
-    "Studies & services": "Studies & services",
+    "Services & affiliations": "Services & affiliations",
+    "Blog": "Blog",
     "Login": "Login",
     "Access your account": "Access your account",
     "My Wired Beauty account": "My Wired Beauty account",
@@ -232,17 +234,45 @@ export default {
   },
   "fr": {
     "Become a panelist": "Devenez un testeur",
-    "What we do": "Ce que nous faisons",
     "Device & App": "Device & App",
     "Who we are": "Qui sommes nous ?",
     "Scientific validation": "Validation scientifique",
-    "Studies & services": "Études et services",
+    "Services & affiliations": "Services et affiliations",
+    "Blog": "Blog",
     "Login": "Se connecter",
     "Access your account": "Accédez à votre compte",
     "My Wired Beauty account": "Mon compte Wired Beauty",
     "New to us?": "Nouveau chez nous ?",
     "Create your WB space to have access to personalized information": "Créez votre espace WB pour avoir accès à des informations personnalisées",
     "Create your account now": "Créez votre compte dès maintenant"
+  },
+  "de": {
+    "Become a panelist": "Podiumsteilnehmer werden",
+    "Device & App": "Device & App",
+    "Who we are": "Wer wir sind",
+    "Scientific validation": "Wissenschaftliche Validierung",
+    "Services & affiliations": "Dienstleistungen und Mitgliedschaften",
+    "Blog": "Blog",
+    "Login": "Login",
+    "Access your account": "Zugang zu Ihrem Konto",
+    "My Wired Beauty account": "Mein Wired Beauty-Konto",
+    "New to us?": "Neu bei uns?",
+    "Create your WB space to have access to personalized information": "Erstellen Sie Ihren WB-Bereich, um Zugang zu personalisierten Informationen zu haben",
+    "Create your account now": "Erstellen Sie jetzt Ihr Konto"
+  },
+  "zho": {
+    "Become a panelist": "成为小组成员",
+    "Device & App": "设备和应用程序",
+    "Who we are": "我们是谁",
+    "Scientific validation": "科学验证",
+    "Services & affiliations": "服务和会员资格",
+    "Blog": "博客",
+    "Login": "登录",
+    "Access your account": "进入你的账户",
+    "My Wired Beauty account": "我的 连线美容 账户",
+    "New to us?": "新来的",
+    "Create your WB space to have access to personalized information": "息创建您的WB空间以获得个性化的信",
+    "Create your account now": "现在就创建你的账户"
   }
 }
 </i18n>
