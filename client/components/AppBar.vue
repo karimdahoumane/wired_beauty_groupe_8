@@ -48,16 +48,24 @@
                             </v-col>
                             <v-col cols="4">
                                 <v-row no-gutters justify="end" align="center">
-                                    <NuxtLink :class="hover ? 'custom-link-hovered' : 'custom-link'" to="/become_panelist">
-                                        <v-btn rounded :color="hover ? 'black' : 'white'" text>{{ $t('Become a panelist') }}</v-btn>
-                                    </NuxtLink>
                                     <div>
                                         <v-btn
                                             :class="hover ? 'custom-link-hovered' : 'custom-link'"
                                             rounded
                                             :color="hover ? 'black' : 'white'"
                                             text
-                                            @click.stop="secondDrawer = !secondDrawer"
+                                            @click.stop="panelistDrawer = !panelistDrawer"
+                                        >
+                                            <span>{{ $t('Become a panelist') }}</span>
+                                        </v-btn>
+                                    </div>
+                                    <div>
+                                        <v-btn
+                                            :class="hover ? 'custom-link-hovered' : 'custom-link'"
+                                            rounded
+                                            :color="hover ? 'black' : 'white'"
+                                            text
+                                            @click.stop="loginDrawer = !loginDrawer"
                                         >
                                             <span>{{ $t('Login') }}</span>
                                         </v-btn>
@@ -131,13 +139,14 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-navigation-drawer v-model="secondDrawer" floating class="custom-right-nav-drawer" width="500" clipped app right hide-overlay temporary>
+        <!-- Login drawer -->
+        <v-navigation-drawer v-model="loginDrawer" floating class="custom-right-nav-drawer" width="500" clipped app right hide-overlay temporary>
             <v-row no-gutters align="center" justify="space-between">
                 <v-col cols="8 offset-1">
                     <p class="mt-3 text-h4 font-weight-bold">{{ $t('Access your account') }}</p>
                 </v-col>
                 <v-col cols="2">
-                    <v-btn icon @click="secondDrawer = !secondDrawer">
+                    <v-btn icon @click="loginDrawer = !loginDrawer">
                         <v-icon>mdi-close</v-icon>
                     </v-btn>
                 </v-col>
@@ -150,7 +159,7 @@
             </v-row>
             <v-row no-gutters align="center" justify="center">
                 <v-col cols="10">
-                    <LoginForm />
+                    <FormLogin />
                 </v-col>
             </v-row>
             <v-divider class="my-6"></v-divider>
@@ -166,6 +175,31 @@
                 </v-col>
             </v-row>
         </v-navigation-drawer>
+
+        <!-- Become panelist drawer -->
+        <v-navigation-drawer v-model="panelistDrawer" floating class="custom-right-nav-drawer" width="500" clipped app right hide-overlay temporary>
+            <v-row no-gutters align="center" justify="space-between">
+                <v-col cols="8 offset-1">
+                    <p class="mt-3 text-h4 font-weight-bold">{{ $t('Become a panelist') }}</p>
+                </v-col>
+                <v-col cols="2">
+                    <v-btn icon @click="panelistDrawer = !panelistDrawer">
+                        <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                </v-col>
+            </v-row>
+            <v-divider></v-divider>
+            <v-row no-gutters align="center" justify="center">
+                <v-col cols="10">
+                    <p class="mt-3 text-h5 font-weight-bold">Contact us become a member</p>
+                </v-col>
+            </v-row>
+            <v-row no-gutters align="center" justify="center">
+                <v-col cols="10">
+                    <FormPanelist />
+                </v-col>
+            </v-row>
+        </v-navigation-drawer>
     </div>
 </template>
 
@@ -174,7 +208,8 @@ export default {
     data() {
         return {
             drawer: null,
-            secondDrawer: null,
+            loginDrawer: null,
+            panelistDrawer: null,
         };
     },
     computed: {
