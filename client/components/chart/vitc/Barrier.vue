@@ -18,7 +18,7 @@
                             </v-list-item>
                             <v-list-item>
                                 <v-list-item-title>.PDF</v-list-item-title>
-                                <v-btn icon><v-icon>mdi-file-pdf</v-icon></v-btn>
+                                <v-btn icon><v-icon color="#000229">mdi-file-document</v-icon></v-btn>
                             </v-list-item>
                         </v-list>
                     </v-menu>
