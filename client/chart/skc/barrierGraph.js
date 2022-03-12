@@ -37,7 +37,7 @@ class BarrierGraphBase {
                             Math.floor(Math.random() * 100),
                         ],
                         fill: false,
-                        borderColor: 'rgb(200, 192, 192)',
+                        borderColor: '#000229',
                         tension: 0.1,
                     },
                 ],
