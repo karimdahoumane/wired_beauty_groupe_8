@@ -8,9 +8,7 @@
             <CookieBanner />
         </v-main>
 
-        <v-footer>
-            <span>&copy; {{ new Date().getFullYear() }}</span>
-        </v-footer>
+        <AppFooter />
     </v-app>
 </template>
 
