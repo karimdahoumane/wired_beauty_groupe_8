@@ -4,7 +4,8 @@
         <v-row no-gutters justify="center">
             <v-col cols="8" class="blog-container">
                 <h2 class="text-h2 blog-title">BLOG</h2>
-                <v-card>
+                <p v-if="!articles || articles.length === 0">No articles were found.</p>
+                <v-card v-else>
                     <v-list-item v-for="(article, index) in articles" :key="index" two-line>
                         <v-list-item-content>
                             <v-list-item-title>{{ article.Title }}</v-list-item-title>
