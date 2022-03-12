@@ -6,9 +6,9 @@
 
                 <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
 
-                <v-select v-model="select" :items="items" :rules="[(v) => !!v || 'Item is required']" label="Item" required></v-select>
+                <v-select v-model="select" :items="items" :rules="[(v) => !!v || 'Item is required']" label="Contact us" required></v-select>
 
-                <v-checkbox v-model="checkbox" :rules="[(v) => !!v || 'You must agree to continue!']" label="Do you agree?" required></v-checkbox>
+                <v-checkbox v-model="checkbox" label="Subscribe to our newsletter"></v-checkbox>
 
                 <v-hover v-slot="{ hover }">
                     <v-btn block :disabled="!valid" :color="hover ? 'white' : 'black'" class="mr-4" @click="validate">
@@ -38,7 +38,7 @@ export default {
         email: '',
         emailRules: [(v) => !!v || 'E-mail is required', (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'],
         select: null,
-        items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+        items: ['Become a panelist', 'Webinar inovation', 'Meet the team', 'Other'],
         checkbox: false,
     }),
     methods: {

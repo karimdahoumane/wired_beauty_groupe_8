@@ -56,7 +56,7 @@
                                             text
                                             @click.stop="panelistDrawer = !panelistDrawer"
                                         >
-                                            <span>{{ $t('Become a panelist') }}</span>
+                                            <span>{{ $t('Contact us') }}</span>
                                         </v-btn>
                                     </div>
                                     <div>
@@ -128,7 +128,7 @@
                 </v-list-item>
                 <v-list-item>
                     <NuxtLink class="custom-link" to="/">
-                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Become a panelist') }}</v-btn>
+                        <v-btn tile class="custom-app-bar-button" text>{{ $t('Contact us') }}</v-btn>
                     </NuxtLink>
                 </v-list-item>
                 <v-list-item>
@@ -180,7 +180,7 @@
         <v-navigation-drawer v-model="panelistDrawer" floating class="custom-right-nav-drawer" width="500" clipped app right hide-overlay temporary>
             <v-row no-gutters align="center" justify="space-between">
                 <v-col cols="8 offset-1">
-                    <p class="mt-3 text-h4 font-weight-bold">{{ $t('Become a panelist') }}</p>
+                    <p class="mt-3 text-h4 font-weight-bold">{{ $t('Contact us') }}</p>
                 </v-col>
                 <v-col cols="2">
                     <v-btn icon @click="panelistDrawer = !panelistDrawer">
@@ -191,7 +191,7 @@
             <v-divider></v-divider>
             <v-row no-gutters align="center" justify="center">
                 <v-col cols="10">
-                    <p class="mt-3 text-h5 font-weight-bold">Contact us become a member</p>
+                    <p class="mt-3 text-h5 font-weight-bold">Feel free to contact us</p>
                 </v-col>
             </v-row>
             <v-row no-gutters align="center" justify="center">
@@ -244,7 +244,7 @@ export default {
 <i18n>
 {
   "en": {
-    "Become a panelist": "Become a panelist",
+    "Contact us": "Contact us",
     "Device & App": "Device & App",
     "Who we are": "Who we are",
     "Scientific validation": "Scientific validation",
@@ -258,7 +258,7 @@ export default {
     "Create your account now": "Create your account now"
   },
   "fr": {
-    "Become a panelist": "Devenez un testeur",
+    "Contact us": "Contactez-nous",
     "Device & App": "Device & App",
     "Who we are": "Qui sommes nous ?",
     "Scientific validation": "Validation scientifique",
@@ -272,7 +272,7 @@ export default {
     "Create your account now": "Créez votre compte dès maintenant"
   },
   "de": {
-    "Become a panelist": "Podiumsteilnehmer werden",
+    "Contact us": "Kontakt us",
     "Device & App": "Device & App",
     "Who we are": "Wer wir sind",
     "Scientific validation": "Wissenschaftliche Validierung",
@@ -286,7 +286,7 @@ export default {
     "Create your account now": "Erstellen Sie jetzt Ihr Konto"
   },
   "zho": {
-    "Become a panelist": "成为小组成员",
+    "Contact us": "联系我们",
     "Device & App": "设备和应用程序",
     "Who we are": "我们是谁",
     "Scientific validation": "科学验证",
