@@ -19,7 +19,7 @@ This will initialize your development environment and install everything you nee
 The project will be up and running. Refer to the following endpoints to know which one is associated to which tech stack.
 Don't forget to create an admin user and a regular user by going to the Strapi endpoint.
 
-Very important: you'll want to enable the access to articles to unauthenticated users: to do so, go to ```http://localhost:1337/admin/settings/users-permissions/roles```, go to the Public role and check the `find` and `findone` permissions on Articles and Categories, and save.
+Very important: you'll want to enable the access to articles to unauthenticated users: to do so, go to ```http://localhost:1337/admin/settings/users-permissions/roles```, go to the Public role and check the `find` and `findone` permissions on Articles and Categories, and save. Repeat the same step for the Authenticated role.
 
 ## Tech Stack (français)
 
