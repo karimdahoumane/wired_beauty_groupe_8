@@ -28,6 +28,6 @@
 export default {
     name: 'IndexAdminPage',
     layout: 'admin',
-    middleware: 'auth',
+    // middleware: 'auth',
 };
 </script>
