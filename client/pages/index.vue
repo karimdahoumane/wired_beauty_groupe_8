@@ -117,7 +117,7 @@
                         <div class="custom-block-two">
                             <v-row no-gutters justify="center" align="center">
                                 <v-col cols="12">
-                                    <h4 class="text-h4 ml-4 text-center mb-3">WE WORK FOR LABS AND MARKETING TEAMS</h4>
+                                    <h4 class="text-h4 ml-4 mb-3">WE WORK FOR LABS AND MARKETING TEAMS</h4>
                                 </v-col>
                                 <v-col cols="8">
                                     <ul>
