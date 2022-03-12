@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Dbfx\LaravelStrapi\LaravelStrapi;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return ['Laravel' => app()->version()];
+Route::get('/test', function () {
+    $strapi = new LaravelStrapi();
+    return $pages = $strapi->collection('pages');
 });
 
 Route::post('/subscribe-newsletter', \App\Http\Controllers\NewsletterController::class);
@@ -27,3 +28,6 @@ Route::get('/graph-test', \App\Http\Controllers\GraphController::class);
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+require __DIR__.'/auth.php';
